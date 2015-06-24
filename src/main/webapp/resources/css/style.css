@@ -1,0 +1,31 @@
+body {
+	background-image: url('../images/background.jpg');
+	background-position: center;
+}
+
+.navbar {
+	background-color: white !important;
+	border-radius: 0px !important;
+	opacity: 0.95;
+	z-index: 9999;
+}
+
+#main-container {
+	padding-top: 10px;
+	background-color: #FFF;
+	border-radius: 4px;
+}
+
+#main-container .table tr:hover {
+	background-color: #EDEDED;
+	cursor: pointer;
+}
+
+#main-container .table tr:first-of-type:hover {
+	background-color: #FFF;
+	cursor: pointer;
+}
+
+.book-title {
+	font-weight: bold;
+}
