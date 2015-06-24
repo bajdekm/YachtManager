@@ -4,8 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
 
-import pl.lodz.p.idbd.model.Book;
-import pl.lodz.p.idbd.service.impl.BookServiceImpl;
+import pl.lodz.p.idbd.model.Yacht;
+import pl.lodz.p.idbd.service.impl.YachtServiceImpl;
 import pl.lodz.p.idbd.util.HibernateUtil;
 
 public class Tests {
@@ -15,12 +15,12 @@ public class Tests {
 		
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		
-		Book book1 = new Book();
+		Yacht book1 = new Yacht();
 		book1.setTitle("Harry Potter and The Chamber Of Secrets");
 		book1.setAuthor("J.K.Rowling");
 		book1.setAvailable(true);
 		
-		Book book2 = new Book();
+		Yacht book2 = new Yacht();
 		book2.setTitle("Harry Potter and The Prisoner Of Azkaban");
 		book2.setAuthor("J.K.Rowling");
 		book2.setAvailable(true);
@@ -38,7 +38,7 @@ public class Tests {
 	
 	@Test
 	public void testBookStatus() {
-		BookServiceImpl bookServiceImpl = new BookServiceImpl();
+		YachtServiceImpl bookServiceImpl = new YachtServiceImpl();
 		bookServiceImpl.makeBookUnavailable(1L);
 	}
 	

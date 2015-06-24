@@ -4,7 +4,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-import pl.lodz.p.idbd.model.Book;
+import pl.lodz.p.idbd.model.Yacht;
 import pl.lodz.p.idbd.model.Reservation;
 
 public class HibernateUtil {
@@ -15,7 +15,7 @@ public class HibernateUtil {
         try {
             Configuration config = new Configuration();
             config.configure();
-            config.addAnnotatedClass(Book.class);
+            config.addAnnotatedClass(Yacht.class);
             config.addAnnotatedClass(Reservation.class);
 
             // Create the SessionFactory from hibernate.cfg.xml

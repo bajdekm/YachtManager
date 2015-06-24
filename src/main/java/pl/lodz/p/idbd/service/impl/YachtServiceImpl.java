@@ -6,43 +6,43 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import pl.lodz.p.idbd.model.Book;
+import pl.lodz.p.idbd.model.Yacht;
 import pl.lodz.p.idbd.util.HibernateUtil;
 
-public class BookServiceImpl {
+public class YachtServiceImpl {
 
 	SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 	
 	@SuppressWarnings("unchecked")
-	public List<Book> getAll() {
+	public List<Yacht> getAll() {
 		Session session = sessionFactory.openSession();
-		Criteria criteria = session.createCriteria(Book.class);
-		List<Book> books = (List<Book>) criteria.list();
-		System.out.println("Total books: " + books.size());
-		return books;
+		Criteria criteria = session.createCriteria(Yacht.class);
+		List<Yacht> yachts = (List<Yacht>) criteria.list();
+		System.out.println("Total books: " + yachts.size());
+		return yachts;
 	}
 	
-	public Book getBookById(Long id) {
+	public Yacht getYachtById(Long id) {
 		Session session = sessionFactory.openSession();
-		Book book = (Book) session.get(Book.class, id);
+		Yacht yacht = (Yacht) session.get(Yacht.class, id);
 		session.close();
-		return book;
+		return yacht;
 	}
 	
-	public void makeBookAvailable(Long id) {
-		setBookStatus(id, true);
+	public void makeYachtAvailable(Long id) {
+		setYachtStatus(id, true);
 	}
 	
 	public void makeBookUnavailable(Long id) {
-		setBookStatus(id, false);
+		setYachtStatus(id, false);
 	}
 	
-	private void setBookStatus(Long id, boolean value) {
+	private void setYachtStatus(Long id, boolean value) {
 		Session session = sessionFactory.openSession();
-		Book book = getBookById(id);
-		book.setAvailable(value);
+		Yacht yacht = getYachtById(id);
+		yacht.setAvailable(value);
 		session.beginTransaction();
-		session.update(book);
+		session.update(yacht);
 		session.flush();
 		session.getTransaction().commit();
 		session.close();

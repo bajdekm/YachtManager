@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
-import pl.lodz.p.idbd.model.Book;
+import pl.lodz.p.idbd.model.Yacht;
 import pl.lodz.p.idbd.model.Reservation;
 import pl.lodz.p.idbd.util.HibernateUtil;
 
@@ -13,7 +13,7 @@ public class ReservationServiceImpl {
 
 	SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 	
-	public void makeReservation(Book book, Long clientId) {
+	public void makeReservation(Yacht book, Long clientId) {
 		Reservation reservation = new Reservation();
 		reservation.setBook(book.getId());
 		reservation.setClientId(clientId);
@@ -27,7 +27,7 @@ public class ReservationServiceImpl {
 		session.close();
 	}
 	
-	public void makeReservationCanceled(Book book) {
+	public void makeReservationCanceled(Yacht book) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		Criteria criteria = session.createCriteria(Reservation.class).add(Restrictions.eq("bookId", book.getId()));
